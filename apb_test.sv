@@ -83,7 +83,7 @@ class apb_write_read_test extends apb_test;
 
         env.vsqr.vif = env.agent.drv.vif;   // share vif for direct reset drive
 
-        seq1 = apb_base_sequence::type_id::create("seq1");
+        seq1 = apb_write_read_sequence::type_id::create("seq1");
         `uvm_info("TEST", "Phase 1: traffic before reset", UVM_LOW)
         seq1.start(env.agent.sqr);
 
@@ -94,7 +94,7 @@ class apb_write_read_test extends apb_test;
         `uvm_info("TEST", "Phase 2: mid-test reset injection", UVM_LOW)
         rst.start(env.vsqr);
 
-        seq2 = apb_base_sequence::type_id::create("seq2");
+        seq2 = apb_write_read_sequence::type_id::create("seq2");
         `uvm_info("TEST", "Phase 3: traffic after reset", UVM_LOW)
         seq2.start(env.agent.sqr);
 
