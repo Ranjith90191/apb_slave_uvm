@@ -25,10 +25,10 @@ endclass
 class apb_write_read_sequence extends uvm_sequence #(apb_sequence_item);
     `uvm_object_utils(apb_write_read_sequence)
 
-    rand bit [`ADDR_WIDTH-1:0] addr;
-    rand bit [`DATA_WIDTH-1:0] data;
+    //rand bit [`ADDR_WIDTH-1:0] addr;
+    //rand bit [`DATA_WIDTH-1:0] data;
 
-    constraint addr_c { addr inside {[0:`MEM_DEPTH-1]}; }
+    //constraint addr_c { addr inside {[0:`MEM_DEPTH-1]}; }
 
     function new(string name="apb_write_read_sequence");
         super.new(name);
@@ -39,12 +39,12 @@ class apb_write_read_sequence extends uvm_sequence #(apb_sequence_item);
         repeat (`NUM_TRANSACTIONS) begin
         req = apb_sequence_item::type_id::create("req");
         start_item(req);
-        if (!req.randomize() with { PADDR == local::addr; PWRITE == 1'b1; PWDATA == local::data; PSTRB == '1; })
+        if (!req.randomize() with {PWRITE == 1'b1;PSTRB == '1; })
             `uvm_fatal("SEQ", "Randomization failed!")
         finish_item(req);
         req = apb_sequence_item::type_id::create("req");
         start_item(req);
-        if (!req.randomize() with { PADDR == local::addr; PWRITE == 1'b0; })
+        if (!req.randomize() with {PWRITE == 1'b0; })
             `uvm_fatal("SEQ", "Randomization failed!")
         finish_item(req);
         end

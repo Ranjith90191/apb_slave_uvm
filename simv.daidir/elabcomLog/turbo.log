@@ -2,4 +2,4 @@ Command Line: /fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/linux64/
 uname(Linux feserver.mirafra.com 3.10.0-1160.114.2.el7.x86_64 #1 SMP Wed Mar 20 15:54:52 UTC 2024 x86_64)
 [INFO] error/warning message 'C00388' has been suppressed.
 [INFO] error/warning message 'C00389' has been suppressed.
-au time 0.294562 0.248763 0.038182 delta 110022656 110022656 total 216641536 216641536
+au time 0.394644 0.333409 0.049800 delta 110026752 110026752 total 216645632 216645632

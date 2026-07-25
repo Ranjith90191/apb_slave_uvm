@@ -6,5 +6,5 @@
     `define DATA_WIDTH 32
     `define MEM_DEPTH  256
     `define NUM_BYTES  (`DATA_WIDTH/8)
-    `define NUM_TRANSACTIONS 100
+    `define NUM_TRANSACTIONS 10000
 `endif
