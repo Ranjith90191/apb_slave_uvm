@@ -1,0 +1,121 @@
+Command: /fetools/work_area/frontend/Batch_11/ranjith/APB_SLAVE_UVM/./simv -full64 +UVM_TESTNAME=apb_test +UVM_VERBOSITY=UVM_MEDIUM -l run_apb_test.log
+Chronologic VCS simulator copyright 1991-2020
+Contains Synopsys proprietary information.
+Compiler version Q-2020.03-SP2-8_Full64; Runtime version Q-2020.03-SP2-8_Full64;  Jul 25 12:06 2026
+UVM_INFO /fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0: reporter [RNTST] Running test apb_test...
+UVM_INFO /fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
+--------------------------------------------------------------------
+Name                         Type                        Size  Value
+--------------------------------------------------------------------
+uvm_test_top                 apb_test                    -     @342 
+  env                        apb_env                     -     @355 
+    agent                    apb_agent                   -     @364 
+      drv                    apb_driver                  -     @568 
+        rsp_port             uvm_analysis_port           -     @587 
+        seq_item_port        uvm_seq_item_pull_port      -     @577 
+      mon                    apb_monitor                 -     @529 
+        item_collector_port  uvm_analysis_port           -     @538 
+        read_collector_port  uvm_analysis_port           -     @548 
+        reset_ap             uvm_analysis_port           -     @558 
+      sqr                    uvm_sequencer               -     @597 
+        rsp_export           uvm_analysis_export         -     @606 
+        seq_item_export      uvm_seq_item_pull_imp       -     @724 
+        arbitration_queue    array                       0     -    
+        lock_queue           array                       0     -    
+        num_last_reqs        integral                    32    'd1  
+        num_last_rsps        integral                    32    'd1  
+    ref_mod                  apb_reference_model         -     @373 
+      exp_port               uvm_analysis_port           -     @761 
+      item_export            uvm_analysis_imp_item       -     @741 
+      reset_export           uvm_analysis_imp_reset      -     @751 
+    scb                      apb_scoreboard              -     @382 
+      act_fifo               uvm_tlm_analysis_fifo #(T)  -     @830 
+        analysis_export      uvm_analysis_imp            -     @879 
+        get_ap               uvm_analysis_port           -     @869 
+        get_peek_export      uvm_get_peek_imp            -     @849 
+        put_ap               uvm_analysis_port           -     @859 
+        put_export           uvm_put_imp                 -     @839 
+      exp_fifo               uvm_tlm_analysis_fifo #(T)  -     @771 
+        analysis_export      uvm_analysis_imp            -     @820 
+        get_ap               uvm_analysis_port           -     @810 
+        get_peek_export      uvm_get_peek_imp            -     @790 
+        put_ap               uvm_analysis_port           -     @800 
+        put_export           uvm_put_imp                 -     @780 
+      reset_export           uvm_analysis_imp_rst        -     @889 
+    vsqr                     apb_virtual_sequencer       -     @391 
+      rsp_export             uvm_analysis_export         -     @400 
+      seq_item_export        uvm_seq_item_pull_imp       -     @518 
+      arbitration_queue      array                       0     -    
+      lock_queue             array                       0     -    
+      num_last_reqs          integral                    32    'd1  
+      num_last_rsps          integral                    32    'd1  
+--------------------------------------------------------------------
+
+UVM_INFO apb_test.sv(26) @ 0: uvm_test_top [TEST] Starting APB Base Sequence...
+UVM_INFO apb_sequence.sv(14) @ 0: uvm_test_top.env.agent.sqr@@seq [SEQ] Generating 10 transactions
+ MEM[43] <= 0x91193f53
+ MEM[147] <= 0xeb9847bf
+ MEM[38] <= 0xfdb6ac8
+ MEM[77] <= 0xc6b68975
+ MEM[146] <= 0x81517f7
+UVM_INFO apb_test.sv(29) @ 415000: uvm_test_top [TEST] APB Base Sequence completed successfully!
+UVM_INFO /fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 415000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO apb_scoreboard.sv(64) @ 415000: uvm_test_top.env.scb [SCB] Result: 5 match(es), 0 mismatch(es)
+UVM_INFO apb_scoreboard.sv(67) @ 415000: uvm_test_top.env.scb [SCB] TEST PASSED
+UVM_INFO /fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 415000: reporter [UVM/REPORT/CATCHER] 
+--- UVM Report catcher Summary ---
+
+
+Number of demoted UVM_FATAL reports  :    0
+Number of demoted UVM_ERROR reports  :    0
+Number of demoted UVM_WARNING reports:    0
+Number of caught UVM_FATAL reports   :    0
+Number of caught UVM_ERROR reports   :    0
+Number of caught UVM_WARNING reports :    0
+
+UVM_INFO /fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/etc/uvm-1.2/base/uvm_report_server.svh(894) @ 415000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   10
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[SCB]     2
+[SEQ]     1
+[TEST]     2
+[TEST_DONE]     1
+[UVM/RELNOTES]     1
+[UVM/REPORT/CATCHER]     1
+[UVMTOP]     1
+
+$finish called from file "/fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/etc/uvm-1.2/base/uvm_root.svh", line 527.
+$finish at simulation time               415000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 415000 ps
+CPU Time:      0.580 seconds;       Data structure size:   0.6Mb
+Sat Jul 25 12:06:34 2026

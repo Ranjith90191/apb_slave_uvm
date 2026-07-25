@@ -1,0 +1,21 @@
+rc file Version 1.0
+
+[Design]
+COMPILE_PATH=/fetools/work_area/frontend/Batch_11/ranjith/APB_SLAVE_UVM
+VERDI_HOME=/fetools/synopsys/installed_tools/verdi/verdi/Q-2020.03-SP2-8
+SystemC=FALSE
+UUM=FALSE
+KDB=TRUE
+USE_NOVAS_HOME=FALSE
+COSIM=FALSE
+TOP=uvm_custom_install_recording uvm_custom_install_verdi_recording tb_top 
+OPTION=-ssv -ssy 
+ELAB_OPTION=-ssv -ssy 
+ELAB=TRUE
+SIMV_WRAPPER=FALSE
+[vcs]
+RUN_ELABCOM=unset TURBO_LOG_DIR ;\rm -rf simv.daidir/elabcomLog ;/fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/linux64/bin/elabcom -logdir simv.daidir/elabcomLog  -simvdaidir simv.daidir  -lib simv.daidir/work  -saveLevel  -elab simv.daidir/kdb -simflow -simdir simv.daidir/kdb_libs -topfile simv.daidir/.elabcomTopFile -ssv -ssy  -Lf work +disable_message+C00380+C00381 +disable_message+C00388+C00389  >& /dev/null  && echo Success >& simv.daidir/.elabcomReport || echo Fail >& simv.daidir/.elabcomReport; \rm -rf simv.daidir/work.lib++ simv.daidir/kdb_libs/ 
+
+[Value]
+WREALX=ffff534e50535f58
+WREALZ=ffff534e50535f5a
