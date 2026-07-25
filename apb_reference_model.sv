@@ -12,6 +12,7 @@ class apb_reference_model extends uvm_component;
     uvm_analysis_port #(apb_sequence_item)                          exp_port;
 
     bit [`DATA_WIDTH-1:0] shadow_mem[int];
+    bit [`DATA_WIDTH-1:0] last_PRDATA;
 
     function new(string name="apb_reference_model", uvm_component parent);
         super.new(name, parent);
@@ -27,16 +28,23 @@ class apb_reference_model extends uvm_component;
     virtual function void write_item(apb_sequence_item t);
         apb_sequence_item exp_pkt;
         if (t.PWRITE) begin
-            for (int i = 0; i < `NUM_BYTES; i++)
-                if (t.PSTRB[i])
+            for (int i = 0; i < `NUM_BYTES; i++)begin
+                if (t.PSTRB[i])begin
                     shadow_mem[t.PADDR][i*8 +: 8] = t.PWDATA[i*8 +: 8];
             `uvm_info("REF_MOD", $sformatf("WRITE PREDICT: shadow[0x%0h]=0x%0h (PSTRB=0x%0h)",
                       t.PADDR, shadow_mem[t.PADDR], t.PSTRB), UVM_HIGH)
+                      end
+            end
+            exp_pkt = apb_sequence_item::type_id::create("exp_pkt");
+            exp_pkt.copy(t);
+            exp_pkt.PRDATA = last_PRDATA;
+            exp_port.write(exp_pkt);
         end
         else begin
             exp_pkt = apb_sequence_item::type_id::create("exp_pkt");
             exp_pkt.copy(t);
-            exp_pkt.PRDATA = shadow_mem.exists(t.PADDR) ? shadow_mem[t.PADDR] : '0;
+            exp_pkt.PRDATA = shadow_mem[t.PADDR];
+            last_PRDATA = shadow_mem[t.PADDR];
             `uvm_info("REF_MOD", $sformatf("READ PREDICT: expected 0x%0h @0x%0h",
                       exp_pkt.PRDATA, t.PADDR), UVM_HIGH)
             exp_port.write(exp_pkt);

@@ -3,16 +3,16 @@
 class apb_monitor extends uvm_monitor;
     `uvm_component_utils(apb_monitor)
 
-    uvm_analysis_port #(apb_sequence_item) item_collector_port;
-    uvm_analysis_port #(apb_sequence_item) read_collector_port;
+    uvm_analysis_port #(apb_sequence_item) input_collector_port;
+    uvm_analysis_port #(apb_sequence_item) output_collector_port;
     uvm_analysis_port #(bit)               reset_ap;
 
     virtual apb_if vif;
 
     function new(string name="apb_monitor", uvm_component parent);
         super.new(name, parent);
-        item_collector_port = new("item_collector_port", this);
-        read_collector_port = new("read_collector_port", this);
+        input_collector_port = new("input_collector_port", this);
+        output_collector_port = new("output_collector_port", this);
         reset_ap             = new("reset_ap", this);
     endfunction
 
@@ -45,19 +45,20 @@ class apb_monitor extends uvm_monitor;
             pkt.PWDATA  = vif.MON_cb.PWDATA;
             pkt.PSTRB   = vif.MON_cb.PSTRB;
             pkt.PSLVERR = vif.MON_cb.PSLVERR;
+            input_collector_port.write(pkt);
 
             //if (pkt.PWRITE) begin
                 //item_collector_port.write(pkt);
             //end
             //else begin
-                @(vif.MON_cb);
+            
+            @(vif.MON_cb);
                 pkt.PRDATA = vif.MON_cb.PRDATA;
 
                 `uvm_info("MON", $sformatf("READ  Addr=0x%0h Data=0x%0h SLVERR=%0b",
                           pkt.PADDR, pkt.PRDATA, pkt.PSLVERR), UVM_HIGH)
-
-                item_collector_port.write(pkt);
-                read_collector_port.write(pkt);
+            output_collector_port.write(pkt);
+                //read_collector_port.write(pkt);
             //end
         end
     end

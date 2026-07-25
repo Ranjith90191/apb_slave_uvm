@@ -42,6 +42,11 @@ class apb_scoreboard extends uvm_scoreboard;
                        exp_pkt.PADDR, exp_pkt.PRDATA, act_pkt.PRDATA))
             mismatch_count++;
         end
+        else if (exp_pkt.PSLVERR !== act_pkt.PSLVERR) begin
+            `uvm_error("SCB", $sformatf("PSLVERR MISMATCH @0x%0h: exp=0x%0h act=0x%0h",
+                       exp_pkt.PADDR, exp_pkt.PSLVERR, act_pkt.PSLVERR))
+            mismatch_count++;
+        end
         else begin
             `uvm_info("SCB", $sformatf("MATCH @0x%0h: data=0x%0h",
                       act_pkt.PADDR, act_pkt.PRDATA), UVM_HIGH)
