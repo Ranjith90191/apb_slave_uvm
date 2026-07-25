@@ -1,7 +1,7 @@
 Command: vcs -full64 -sverilog -ntb_opts uvm-1.2 -timescale=1ns/1ps -debug_access+all \
 -kdb -lca -f filelist.f -l compile.log
                          Chronologic VCS (TM)
-      Version Q-2020.03-SP2-8_Full64 -- Sat Jul 25 17:37:32 2026
+      Version Q-2020.03-SP2-8_Full64 -- Sat Jul 25 18:36:24 2026
                Copyright (c) 1991-2020 by Synopsys Inc.
                          ALL RIGHTS RESERVED
 
@@ -402,7 +402,7 @@ if [ -x ../simv ]; then chmod a-x ../simv; fi
 g++  -o ../simv      -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir \
 -Wl,-rpath=/fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/linux64/lib \
 -L/fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/linux64/lib  -Wl,-rpath-link=./ \
-/usr/lib64/libnuma.so.1 uvm_dpi.o uvm_verdi_dpi.o     _56987_archive_1.so _prev_archive_1.so \
+/usr/lib64/libnuma.so.1 uvm_dpi.o uvm_verdi_dpi.o     _73694_archive_1.so _prev_archive_1.so \
 _cuarc0.so  SIM_l.o      rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o \
 rmar_llvm_0_0.o          -lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile \
 -luclinative /fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/linux64/lib/vcs_tls.o \
@@ -411,5 +411,5 @@ _vcs_pli_stub_.o   /fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/lin
 /fetools/synopsys/installed_tools/verdi/verdi/Q-2020.03-SP2-8/share/PLI/VCS/LINUX64/pli.a \
 -ldl  -lc -lm -lpthread -ldl 
 ../simv up to date
-CPU time: 11.657 seconds to compile + .442 seconds to elab + .715 seconds to link
+CPU time: 11.542 seconds to compile + .409 seconds to elab + .661 seconds to link
 Verdi KDB elaboration done and the database successfully generated: 0 error(s), 0 warning(s)
