@@ -1,4 +1,4 @@
-
+`include "apb_defines.svh"
 class apb_test extends uvm_test;
     `uvm_component_utils(apb_test)
 
@@ -49,7 +49,6 @@ class apb_reset_test extends apb_test;
         env.vsqr.vif = env.agent.drv.vif;   // share vif for direct reset drive
 
         seq1 = apb_base_sequence::type_id::create("seq1");
-        seq1.num_transactions = 8;
         `uvm_info("TEST", "Phase 1: traffic before reset", UVM_LOW)
         seq1.start(env.agent.sqr);
 
@@ -61,7 +60,6 @@ class apb_reset_test extends apb_test;
         rst.start(env.vsqr);
 
         seq2 = apb_base_sequence::type_id::create("seq2");
-        seq2.num_transactions = 8;
         `uvm_info("TEST", "Phase 3: traffic after reset", UVM_LOW)
         seq2.start(env.agent.sqr);
 
@@ -69,3 +67,39 @@ class apb_reset_test extends apb_test;
         phase.drop_objection(this);
     endtask
 endclass
+
+class apb_write_read_test extends apb_test;
+    `uvm_component_utils(apb_write_read_test)
+
+    function new(string name="apb_write_read_test", uvm_component parent=null);
+        super.new(name, parent);
+    endfunction
+
+    virtual task run_phase(uvm_phase phase);
+        apb_write_read_sequence seq1, seq2;
+        apb_reset_seq     rst;
+
+        phase.raise_objection(this);
+
+        env.vsqr.vif = env.agent.drv.vif;   // share vif for direct reset drive
+
+        seq1 = apb_base_sequence::type_id::create("seq1");
+        `uvm_info("TEST", "Phase 1: traffic before reset", UVM_LOW)
+        seq1.start(env.agent.sqr);
+
+        rst = apb_reset_seq::type_id::create("rst");
+        rst.vif = env.vsqr.vif;
+        if (!rst.randomize())
+            `uvm_fatal("TEST", "reset seq randomization failed")
+        `uvm_info("TEST", "Phase 2: mid-test reset injection", UVM_LOW)
+        rst.start(env.vsqr);
+
+        seq2 = apb_base_sequence::type_id::create("seq2");
+        `uvm_info("TEST", "Phase 3: traffic after reset", UVM_LOW)
+        seq2.start(env.agent.sqr);
+
+        #100ns;
+        phase.drop_objection(this);
+    endtask
+endclass
+

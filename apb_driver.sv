@@ -1,11 +1,3 @@
-//==============================================================================
-// File: apb_driver.sv
-// Runs two parallel processes:
-//   - drive_loop()   : normal APB master-side protocol driving
-//   - reset_watcher(): async reset preemption, independent of drive_loop
-// On reset, in-flight transactions are hard-killed via disable, bus is
-// forced to idle, and drive_loop is cleanly restarted once reset lifts.
-//==============================================================================
 `include "apb_defines.svh"
 
 class apb_driver extends uvm_driver #(apb_sequence_item);

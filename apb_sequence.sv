@@ -3,16 +3,16 @@
 class apb_base_sequence extends uvm_sequence #(apb_sequence_item);
     `uvm_object_utils(apb_base_sequence)
 
-    rand int unsigned num_transactions = 10;
-    constraint reasonable_len { num_transactions inside {[1:200]}; }
+    //rand int unsigned num_transactions = `NUM_TRANSACTIONS;
+    //constraint reasonable_len { num_transactions inside {[1:200]}; }
 
     function new(string name="apb_base_sequence");
         super.new(name);
     endfunction
 
     virtual task body();
-        `uvm_info("SEQ", $sformatf("Generating %0d transactions", num_transactions), UVM_LOW)
-        repeat (num_transactions) begin
+        `uvm_info("SEQ", $sformatf("Generating %0d base transactions", `NUM_TRANSACTIONS), UVM_LOW)
+        repeat (`NUM_TRANSACTIONS) begin
             req = apb_sequence_item::type_id::create("req");
             start_item(req);
             if (!req.randomize())
@@ -35,6 +35,8 @@ class apb_write_read_sequence extends uvm_sequence #(apb_sequence_item);
     endfunction
 
     virtual task body();
+        `uvm_info("SEQ", $sformatf("Generating %0d base transactions", `NUM_TRANSACTIONS), UVM_LOW)
+        repeat (`NUM_TRANSACTIONS) begin
         req = apb_sequence_item::type_id::create("req");
         start_item(req);
         if (!req.randomize() with { PADDR == local::addr; PWRITE == 1'b1; PWDATA == local::data; PSTRB == '1; })
@@ -45,5 +47,6 @@ class apb_write_read_sequence extends uvm_sequence #(apb_sequence_item);
         if (!req.randomize() with { PADDR == local::addr; PWRITE == 1'b0; })
             `uvm_fatal("SEQ", "Randomization failed!")
         finish_item(req);
+        end
     endtask
 endclass
