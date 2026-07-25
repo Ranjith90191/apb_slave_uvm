@@ -45,7 +45,7 @@ class apb_monitor extends uvm_monitor;
             pkt.PWDATA  = vif.MON_cb.PWDATA;
             pkt.PSTRB   = vif.MON_cb.PSTRB;
             pkt.PSLVERR = vif.MON_cb.PSLVERR;
-            input_collector_port.write(pkt);
+            
 
             //if (pkt.PWRITE) begin
                 //item_collector_port.write(pkt);
@@ -57,6 +57,7 @@ class apb_monitor extends uvm_monitor;
 
                 `uvm_info("MON", $sformatf("READ  Addr=0x%0h Data=0x%0h SLVERR=%0b",
                           pkt.PADDR, pkt.PRDATA, pkt.PSLVERR), UVM_HIGH)
+            input_collector_port.write(pkt);
             output_collector_port.write(pkt);
                 //read_collector_port.write(pkt);
             //end

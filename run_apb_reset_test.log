@@ -1,7 +1,7 @@
 Command: /fetools/work_area/frontend/Batch_11/ranjith/APB_SLAVE_UVM/./simv -full64 +UVM_TESTNAME=apb_reset_test +UVM_VERBOSITY=UVM_HIGH -l run_apb_reset_test.log
 Chronologic VCS simulator copyright 1991-2020
 Contains Synopsys proprietary information.
-Compiler version Q-2020.03-SP2-8_Full64; Runtime version Q-2020.03-SP2-8_Full64;  Jul 25 12:42 2026
+Compiler version Q-2020.03-SP2-8_Full64; Runtime version Q-2020.03-SP2-8_Full64;  Jul 25 13:26 2026
 UVM_INFO /fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/etc/uvm-1.2/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
 ----------------------------------------------------------------
 UVM-1.2.Synopsys
@@ -26,140 +26,144 @@ UVM-1.2.Synopsys
 
 UVM_INFO @ 0: reporter [RNTST] Running test apb_reset_test...
 UVM_INFO /fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/etc/uvm-1.2/base/uvm_root.svh(589) @ 0: reporter [UVMTOP] UVM testbench topology:
---------------------------------------------------------------------
-Name                         Type                        Size  Value
---------------------------------------------------------------------
-uvm_test_top                 apb_reset_test              -     @342 
-  env                        apb_env                     -     @355 
-    agent                    apb_agent                   -     @364 
-      drv                    apb_driver                  -     @568 
-        rsp_port             uvm_analysis_port           -     @587 
-        seq_item_port        uvm_seq_item_pull_port      -     @577 
-      mon                    apb_monitor                 -     @529 
-        item_collector_port  uvm_analysis_port           -     @538 
-        read_collector_port  uvm_analysis_port           -     @548 
-        reset_ap             uvm_analysis_port           -     @558 
-      sqr                    uvm_sequencer               -     @597 
-        rsp_export           uvm_analysis_export         -     @606 
-        seq_item_export      uvm_seq_item_pull_imp       -     @724 
-        arbitration_queue    array                       0     -    
-        lock_queue           array                       0     -    
-        num_last_reqs        integral                    32    'd1  
-        num_last_rsps        integral                    32    'd1  
-    ref_mod                  apb_reference_model         -     @373 
-      exp_port               uvm_analysis_port           -     @761 
-      item_export            uvm_analysis_imp_item       -     @741 
-      reset_export           uvm_analysis_imp_reset      -     @751 
-    scb                      apb_scoreboard              -     @382 
-      act_fifo               uvm_tlm_analysis_fifo #(T)  -     @830 
-        analysis_export      uvm_analysis_imp            -     @879 
-        get_ap               uvm_analysis_port           -     @869 
-        get_peek_export      uvm_get_peek_imp            -     @849 
-        put_ap               uvm_analysis_port           -     @859 
-        put_export           uvm_put_imp                 -     @839 
-      exp_fifo               uvm_tlm_analysis_fifo #(T)  -     @771 
-        analysis_export      uvm_analysis_imp            -     @820 
-        get_ap               uvm_analysis_port           -     @810 
-        get_peek_export      uvm_get_peek_imp            -     @790 
-        put_ap               uvm_analysis_port           -     @800 
-        put_export           uvm_put_imp                 -     @780 
-      reset_export           uvm_analysis_imp_rst        -     @889 
-    vsqr                     apb_virtual_sequencer       -     @391 
-      rsp_export             uvm_analysis_export         -     @400 
-      seq_item_export        uvm_seq_item_pull_imp       -     @518 
-      arbitration_queue      array                       0     -    
-      lock_queue             array                       0     -    
-      num_last_reqs          integral                    32    'd1  
-      num_last_rsps          integral                    32    'd1  
---------------------------------------------------------------------
+----------------------------------------------------------------------
+Name                           Type                        Size  Value
+----------------------------------------------------------------------
+uvm_test_top                   apb_reset_test              -     @342 
+  env                          apb_env                     -     @355 
+    agent                      apb_agent                   -     @364 
+      drv                      apb_driver                  -     @568 
+        rsp_port               uvm_analysis_port           -     @587 
+        seq_item_port          uvm_seq_item_pull_port      -     @577 
+      mon                      apb_monitor                 -     @529 
+        input_collector_port   uvm_analysis_port           -     @538 
+        output_collector_port  uvm_analysis_port           -     @548 
+        reset_ap               uvm_analysis_port           -     @558 
+      sqr                      uvm_sequencer               -     @597 
+        rsp_export             uvm_analysis_export         -     @606 
+        seq_item_export        uvm_seq_item_pull_imp       -     @724 
+        arbitration_queue      array                       0     -    
+        lock_queue             array                       0     -    
+        num_last_reqs          integral                    32    'd1  
+        num_last_rsps          integral                    32    'd1  
+    ref_mod                    apb_reference_model         -     @373 
+      exp_port                 uvm_analysis_port           -     @761 
+      item_export              uvm_analysis_imp_item       -     @741 
+      reset_export             uvm_analysis_imp_reset      -     @751 
+    scb                        apb_scoreboard              -     @382 
+      act_fifo                 uvm_tlm_analysis_fifo #(T)  -     @830 
+        analysis_export        uvm_analysis_imp            -     @879 
+        get_ap                 uvm_analysis_port           -     @869 
+        get_peek_export        uvm_get_peek_imp            -     @849 
+        put_ap                 uvm_analysis_port           -     @859 
+        put_export             uvm_put_imp                 -     @839 
+      exp_fifo                 uvm_tlm_analysis_fifo #(T)  -     @771 
+        analysis_export        uvm_analysis_imp            -     @820 
+        get_ap                 uvm_analysis_port           -     @810 
+        get_peek_export        uvm_get_peek_imp            -     @790 
+        put_ap                 uvm_analysis_port           -     @800 
+        put_export             uvm_put_imp                 -     @780 
+      reset_export             uvm_analysis_imp_rst        -     @889 
+    vsqr                       apb_virtual_sequencer       -     @391 
+      rsp_export               uvm_analysis_export         -     @400 
+      seq_item_export          uvm_seq_item_pull_imp       -     @518 
+      arbitration_queue        array                       0     -    
+      lock_queue               array                       0     -    
+      num_last_reqs            integral                    32    'd1  
+      num_last_rsps            integral                    32    'd1  
+----------------------------------------------------------------------
 
 UVM_INFO apb_test.sv(53) @ 0: uvm_test_top [TEST] Phase 1: traffic before reset
 UVM_INFO apb_sequence.sv(14) @ 0: uvm_test_top.env.agent.sqr@@seq1 [SEQ] Generating 8 transactions
-UVM_INFO apb_monitor.sv(49) @ 45000: uvm_test_top.env.agent.mon [MON] READ  Addr=0x3f Data=0x0 Strb=0x0 SLVERR=0
-UVM_INFO apb_reference_model.sv(40) @ 45000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x0 @0x3f
-UVM_INFO apb_reference_model.sv(40) @ 55000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x0 @0x3f
-UVM_INFO apb_scoreboard.sv(46) @ 55000: uvm_test_top.env.scb [SCB] MATCH @0x3f: data=0x0
-UVM_INFO apb_monitor.sv(49) @ 75000: uvm_test_top.env.agent.mon [MON] READ  Addr=0xe5 Data=0x0 Strb=0x0 SLVERR=0
-UVM_INFO apb_reference_model.sv(40) @ 75000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x0 @0xe5
-UVM_INFO apb_reference_model.sv(40) @ 85000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x0 @0xe5
-UVM_ERROR apb_scoreboard.sv(36) @ 85000: uvm_test_top.env.scb [SCB] ADDR MISMATCH: exp=0x3f act=0xe5
-UVM_INFO apb_monitor.sv(49) @ 105000: uvm_test_top.env.agent.mon [MON] READ  Addr=0x9d Data=0x0 Strb=0x0 SLVERR=0
-UVM_INFO apb_reference_model.sv(40) @ 105000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x0 @0x9d
-UVM_INFO apb_reference_model.sv(40) @ 115000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x0 @0x9d
-UVM_ERROR apb_scoreboard.sv(36) @ 115000: uvm_test_top.env.scb [SCB] ADDR MISMATCH: exp=0xe5 act=0x9d
+UVM_INFO apb_monitor.sv(58) @ 55000: uvm_test_top.env.agent.mon [MON] READ  Addr=0x3f Data=0x0 SLVERR=0
+UVM_INFO apb_reference_model.sv(48) @ 55000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x0 @0x3f
+UVM_INFO apb_scoreboard.sv(51) @ 55000: uvm_test_top.env.scb [SCB] MATCH @0x3f: data=0x0
+UVM_INFO apb_monitor.sv(58) @ 85000: uvm_test_top.env.agent.mon [MON] READ  Addr=0xe5 Data=0x0 SLVERR=0
+UVM_INFO apb_reference_model.sv(48) @ 85000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x0 @0xe5
+UVM_INFO apb_scoreboard.sv(51) @ 85000: uvm_test_top.env.scb [SCB] MATCH @0xe5: data=0x0
+UVM_INFO apb_monitor.sv(58) @ 115000: uvm_test_top.env.agent.mon [MON] READ  Addr=0x9d Data=0x0 SLVERR=0
+UVM_INFO apb_reference_model.sv(48) @ 115000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x0 @0x9d
+UVM_INFO apb_scoreboard.sv(51) @ 115000: uvm_test_top.env.scb [SCB] MATCH @0x9d: data=0x0
  MEM[206] <= 0xf923f92c
-UVM_INFO apb_monitor.sv(49) @ 135000: uvm_test_top.env.agent.mon [MON] WRITE Addr=0xce Data=0xf923f92c Strb=0xf SLVERR=0
-UVM_INFO apb_reference_model.sv(33) @ 135000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xce]=0xf923f92c (PSTRB=0xf)
-UVM_INFO apb_reference_model.sv(33) @ 135000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xce]=0xf923f92c (PSTRB=0xf)
-UVM_ERROR apb_scoreboard.sv(36) @ 135000: uvm_test_top.env.scb [SCB] ADDR MISMATCH: exp=0xe5 act=0xce
-UVM_INFO apb_monitor.sv(49) @ 165000: uvm_test_top.env.agent.mon [MON] READ  Addr=0xfa Data=0x0 Strb=0x0 SLVERR=0
-UVM_INFO apb_reference_model.sv(40) @ 165000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x0 @0xfa
-UVM_INFO apb_reference_model.sv(40) @ 175000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x0 @0xfa
-UVM_ERROR apb_scoreboard.sv(36) @ 175000: uvm_test_top.env.scb [SCB] ADDR MISMATCH: exp=0x9d act=0xfa
+UVM_INFO apb_monitor.sv(58) @ 145000: uvm_test_top.env.agent.mon [MON] READ  Addr=0xce Data=0x0 SLVERR=0
+UVM_INFO apb_reference_model.sv(34) @ 145000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xce]=0x2c (PSTRB=0xf)
+UVM_INFO apb_reference_model.sv(34) @ 145000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xce]=0xf92c (PSTRB=0xf)
+UVM_INFO apb_reference_model.sv(34) @ 145000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xce]=0x23f92c (PSTRB=0xf)
+UVM_INFO apb_reference_model.sv(34) @ 145000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xce]=0xf923f92c (PSTRB=0xf)
+UVM_INFO apb_scoreboard.sv(51) @ 145000: uvm_test_top.env.scb [SCB] MATCH @0xce: data=0x0
+UVM_INFO apb_monitor.sv(58) @ 175000: uvm_test_top.env.agent.mon [MON] READ  Addr=0xfa Data=0x0 SLVERR=0
+UVM_INFO apb_reference_model.sv(48) @ 175000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x0 @0xfa
+UVM_INFO apb_scoreboard.sv(51) @ 175000: uvm_test_top.env.scb [SCB] MATCH @0xfa: data=0x0
  MEM[252] <= 0x4a4553c1
-UVM_INFO apb_monitor.sv(49) @ 195000: uvm_test_top.env.agent.mon [MON] WRITE Addr=0xfc Data=0x4a4553c1 Strb=0xf SLVERR=0
-UVM_INFO apb_reference_model.sv(33) @ 195000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xfc]=0x4a4553c1 (PSTRB=0xf)
-UVM_INFO apb_reference_model.sv(33) @ 195000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xfc]=0x4a4553c1 (PSTRB=0xf)
-UVM_ERROR apb_scoreboard.sv(36) @ 195000: uvm_test_top.env.scb [SCB] ADDR MISMATCH: exp=0x9d act=0xfc
-UVM_INFO apb_monitor.sv(49) @ 225000: uvm_test_top.env.agent.mon [MON] READ  Addr=0x1e Data=0x0 Strb=0x0 SLVERR=0
-UVM_INFO apb_reference_model.sv(40) @ 225000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x0 @0x1e
-UVM_INFO apb_reference_model.sv(40) @ 235000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x0 @0x1e
-UVM_ERROR apb_scoreboard.sv(36) @ 235000: uvm_test_top.env.scb [SCB] ADDR MISMATCH: exp=0xfa act=0x1e
+UVM_INFO apb_monitor.sv(58) @ 205000: uvm_test_top.env.agent.mon [MON] READ  Addr=0xfc Data=0x0 SLVERR=0
+UVM_INFO apb_reference_model.sv(34) @ 205000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xfc]=0xc1 (PSTRB=0xf)
+UVM_INFO apb_reference_model.sv(34) @ 205000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xfc]=0x53c1 (PSTRB=0xf)
+UVM_INFO apb_reference_model.sv(34) @ 205000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xfc]=0x4553c1 (PSTRB=0xf)
+UVM_INFO apb_reference_model.sv(34) @ 205000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xfc]=0x4a4553c1 (PSTRB=0xf)
+UVM_INFO apb_scoreboard.sv(51) @ 205000: uvm_test_top.env.scb [SCB] MATCH @0xfc: data=0x0
+UVM_INFO apb_monitor.sv(58) @ 235000: uvm_test_top.env.agent.mon [MON] READ  Addr=0x1e Data=0x0 SLVERR=0
+UVM_INFO apb_reference_model.sv(48) @ 235000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x0 @0x1e
+UVM_INFO apb_scoreboard.sv(51) @ 235000: uvm_test_top.env.scb [SCB] MATCH @0x1e: data=0x0
  MEM[3] <= 0x3812ac90
-UVM_INFO apb_monitor.sv(49) @ 255000: uvm_test_top.env.agent.mon [MON] WRITE Addr=0x3 Data=0x3812ac90 Strb=0xf SLVERR=0
-UVM_INFO apb_reference_model.sv(33) @ 255000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0x3]=0x3812ac90 (PSTRB=0xf)
-UVM_INFO apb_reference_model.sv(33) @ 255000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0x3]=0x3812ac90 (PSTRB=0xf)
-UVM_ERROR apb_scoreboard.sv(36) @ 255000: uvm_test_top.env.scb [SCB] ADDR MISMATCH: exp=0xfa act=0x3
 UVM_INFO apb_test.sv(60) @ 255000: uvm_test_top [TEST] Phase 2: mid-test reset injection
 UVM_INFO apb_reset_seq.sv(24) @ 255000: uvm_test_top.env.vsqr@@rst [RST_SEQ] Asserting PRESETn for 4 cycles
-UVM_INFO apb_monitor.sv(67) @ 265000: uvm_test_top.env.agent.mon [MON] Reset asserted
-UVM_INFO apb_reference_model.sv(48) @ 265000: uvm_test_top.env.ref_mod [REF_MOD] Reset seen ? clearing shadow memory
-UVM_INFO apb_scoreboard.sv(56) @ 265000: uvm_test_top.env.scb [SCB] Reset seen ? flushing exp_fifo/act_fifo
+UVM_INFO apb_monitor.sv(71) @ 265000: uvm_test_top.env.agent.mon [MON] Reset asserted
+UVM_INFO apb_reference_model.sv(56) @ 265000: uvm_test_top.env.ref_mod [REF_MOD] Reset seen ? clearing shadow memory
+UVM_INFO apb_scoreboard.sv(61) @ 265000: uvm_test_top.env.scb [SCB] Reset seen ? flushing exp_fifo/act_fifo
 UVM_INFO apb_driver.sv(80) @ 265000: uvm_test_top.env.agent.drv [DRV] Reset detected mid-run ? aborting in-flight transfer
-UVM_INFO apb_monitor.sv(70) @ 305000: uvm_test_top.env.agent.mon [MON] Reset released
+UVM_INFO apb_monitor.sv(58) @ 265000: uvm_test_top.env.agent.mon [MON] READ  Addr=0x3 Data=0x0 SLVERR=0
+UVM_INFO apb_reference_model.sv(34) @ 265000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0x3]=0x90 (PSTRB=0xf)
+UVM_INFO apb_reference_model.sv(34) @ 265000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0x3]=0xac90 (PSTRB=0xf)
+UVM_INFO apb_reference_model.sv(34) @ 265000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0x3]=0x12ac90 (PSTRB=0xf)
+UVM_INFO apb_reference_model.sv(34) @ 265000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0x3]=0x3812ac90 (PSTRB=0xf)
+UVM_INFO apb_scoreboard.sv(51) @ 265000: uvm_test_top.env.scb [SCB] MATCH @0x3: data=0x0
+UVM_INFO apb_monitor.sv(74) @ 305000: uvm_test_top.env.agent.mon [MON] Reset released
 UVM_INFO apb_driver.sv(85) @ 305000: uvm_test_top.env.agent.drv [DRV] Reset released ? resuming drive_loop
 UVM_INFO apb_reset_seq.sv(30) @ 315000: uvm_test_top.env.vsqr@@rst [RST_SEQ] PRESETn de-asserted
 UVM_INFO apb_test.sv(65) @ 315000: uvm_test_top [TEST] Phase 3: traffic after reset
 UVM_INFO apb_sequence.sv(14) @ 315000: uvm_test_top.env.agent.sqr@@seq2 [SEQ] Generating 8 transactions
-UVM_INFO apb_monitor.sv(49) @ 335000: uvm_test_top.env.agent.mon [MON] READ  Addr=0x57 Data=0x0 Strb=0x0 SLVERR=0
-UVM_INFO apb_reference_model.sv(40) @ 335000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x0 @0x57
-UVM_INFO apb_reference_model.sv(40) @ 345000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x0 @0x57
-UVM_ERROR apb_scoreboard.sv(36) @ 345000: uvm_test_top.env.scb [SCB] ADDR MISMATCH: exp=0x1e act=0x57
-UVM_INFO apb_monitor.sv(49) @ 365000: uvm_test_top.env.agent.mon [MON] READ  Addr=0x89 Data=0x0 Strb=0x0 SLVERR=0
-UVM_INFO apb_reference_model.sv(40) @ 365000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x0 @0x89
-UVM_INFO apb_reference_model.sv(40) @ 375000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x0 @0x89
-UVM_ERROR apb_scoreboard.sv(36) @ 375000: uvm_test_top.env.scb [SCB] ADDR MISMATCH: exp=0x57 act=0x89
+UVM_INFO apb_monitor.sv(58) @ 345000: uvm_test_top.env.agent.mon [MON] READ  Addr=0x57 Data=0x0 SLVERR=0
+UVM_INFO apb_reference_model.sv(48) @ 345000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x0 @0x57
+UVM_INFO apb_scoreboard.sv(51) @ 345000: uvm_test_top.env.scb [SCB] MATCH @0x57: data=0x0
+UVM_INFO apb_monitor.sv(58) @ 375000: uvm_test_top.env.agent.mon [MON] READ  Addr=0x89 Data=0x0 SLVERR=0
+UVM_INFO apb_reference_model.sv(48) @ 375000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x0 @0x89
+UVM_INFO apb_scoreboard.sv(51) @ 375000: uvm_test_top.env.scb [SCB] MATCH @0x89: data=0x0
  MEM[57] <= 0x983aa09f
-UVM_INFO apb_monitor.sv(49) @ 395000: uvm_test_top.env.agent.mon [MON] WRITE Addr=0x39 Data=0x983aa09f Strb=0x9 SLVERR=0
-UVM_INFO apb_reference_model.sv(33) @ 395000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0x39]=0x9800009f (PSTRB=0x9)
-UVM_INFO apb_reference_model.sv(33) @ 395000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0x39]=0x9800009f (PSTRB=0x9)
-UVM_ERROR apb_scoreboard.sv(36) @ 395000: uvm_test_top.env.scb [SCB] ADDR MISMATCH: exp=0x57 act=0x39
+UVM_INFO apb_monitor.sv(58) @ 405000: uvm_test_top.env.agent.mon [MON] READ  Addr=0x39 Data=0x0 SLVERR=0
+UVM_INFO apb_reference_model.sv(34) @ 405000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0x39]=0x9f (PSTRB=0x9)
+UVM_INFO apb_reference_model.sv(34) @ 405000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0x39]=0x9800009f (PSTRB=0x9)
+UVM_INFO apb_scoreboard.sv(51) @ 405000: uvm_test_top.env.scb [SCB] MATCH @0x39: data=0x0
  MEM[240] <= 0xc20c95a8
-UVM_INFO apb_monitor.sv(49) @ 425000: uvm_test_top.env.agent.mon [MON] WRITE Addr=0xf0 Data=0xc20c95a8 Strb=0xf SLVERR=0
-UVM_INFO apb_reference_model.sv(33) @ 425000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xf0]=0xc20c95a8 (PSTRB=0xf)
-UVM_INFO apb_reference_model.sv(33) @ 425000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xf0]=0xc20c95a8 (PSTRB=0xf)
-UVM_ERROR apb_scoreboard.sv(36) @ 425000: uvm_test_top.env.scb [SCB] ADDR MISMATCH: exp=0x89 act=0xf0
-UVM_INFO apb_monitor.sv(49) @ 455000: uvm_test_top.env.agent.mon [MON] READ  Addr=0x39 Data=0x0 Strb=0x0 SLVERR=0
-UVM_INFO apb_reference_model.sv(40) @ 455000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x9800009f @0x39
-UVM_INFO apb_reference_model.sv(40) @ 465000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x9800009f @0x39
-UVM_ERROR apb_scoreboard.sv(36) @ 465000: uvm_test_top.env.scb [SCB] ADDR MISMATCH: exp=0x89 act=0x39
+UVM_INFO apb_monitor.sv(58) @ 435000: uvm_test_top.env.agent.mon [MON] READ  Addr=0xf0 Data=0x0 SLVERR=0
+UVM_INFO apb_reference_model.sv(34) @ 435000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xf0]=0xa8 (PSTRB=0xf)
+UVM_INFO apb_reference_model.sv(34) @ 435000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xf0]=0x95a8 (PSTRB=0xf)
+UVM_INFO apb_reference_model.sv(34) @ 435000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xf0]=0xc95a8 (PSTRB=0xf)
+UVM_INFO apb_reference_model.sv(34) @ 435000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xf0]=0xc20c95a8 (PSTRB=0xf)
+UVM_INFO apb_scoreboard.sv(51) @ 435000: uvm_test_top.env.scb [SCB] MATCH @0xf0: data=0x0
+UVM_INFO apb_monitor.sv(58) @ 465000: uvm_test_top.env.agent.mon [MON] READ  Addr=0x39 Data=0x9800009f SLVERR=0
+UVM_INFO apb_reference_model.sv(48) @ 465000: uvm_test_top.env.ref_mod [REF_MOD] READ PREDICT: expected 0x9800009f @0x39
+UVM_INFO apb_scoreboard.sv(51) @ 465000: uvm_test_top.env.scb [SCB] MATCH @0x39: data=0x9800009f
  MEM[9] <= 0xc2972adb
-UVM_INFO apb_monitor.sv(49) @ 485000: uvm_test_top.env.agent.mon [MON] WRITE Addr=0x9 Data=0xc2972adb Strb=0x1 SLVERR=0
-UVM_INFO apb_reference_model.sv(33) @ 485000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0x9]=0xdb (PSTRB=0x1)
-UVM_INFO apb_reference_model.sv(33) @ 485000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0x9]=0xdb (PSTRB=0x1)
-UVM_ERROR apb_scoreboard.sv(36) @ 485000: uvm_test_top.env.scb [SCB] ADDR MISMATCH: exp=0x39 act=0x9
+UVM_INFO apb_monitor.sv(58) @ 495000: uvm_test_top.env.agent.mon [MON] READ  Addr=0x9 Data=0x0 SLVERR=0
+UVM_INFO apb_reference_model.sv(34) @ 495000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0x9]=0xdb (PSTRB=0x1)
+UVM_ERROR apb_scoreboard.sv(41) @ 495000: uvm_test_top.env.scb [SCB] DATA MISMATCH @0x9: exp=0x9800009f act=0x0
  MEM[96] <= 0x2519b8b3
-UVM_INFO apb_monitor.sv(49) @ 515000: uvm_test_top.env.agent.mon [MON] WRITE Addr=0x60 Data=0x2519b8b3 Strb=0xf SLVERR=0
-UVM_INFO apb_reference_model.sv(33) @ 515000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0x60]=0x2519b8b3 (PSTRB=0xf)
-UVM_INFO apb_reference_model.sv(33) @ 515000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0x60]=0x2519b8b3 (PSTRB=0xf)
-UVM_ERROR apb_scoreboard.sv(36) @ 515000: uvm_test_top.env.scb [SCB] ADDR MISMATCH: exp=0x39 act=0x60
+UVM_INFO apb_monitor.sv(58) @ 525000: uvm_test_top.env.agent.mon [MON] READ  Addr=0x60 Data=0x0 SLVERR=0
+UVM_INFO apb_reference_model.sv(34) @ 525000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0x60]=0xb3 (PSTRB=0xf)
+UVM_INFO apb_reference_model.sv(34) @ 525000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0x60]=0xb8b3 (PSTRB=0xf)
+UVM_INFO apb_reference_model.sv(34) @ 525000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0x60]=0x19b8b3 (PSTRB=0xf)
+UVM_INFO apb_reference_model.sv(34) @ 525000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0x60]=0x2519b8b3 (PSTRB=0xf)
+UVM_ERROR apb_scoreboard.sv(41) @ 525000: uvm_test_top.env.scb [SCB] DATA MISMATCH @0x60: exp=0x9800009f act=0x0
  MEM[199] <= 0x5d631233
-UVM_INFO apb_monitor.sv(49) @ 545000: uvm_test_top.env.agent.mon [MON] WRITE Addr=0xc7 Data=0x5d631233 Strb=0xf SLVERR=0
-UVM_INFO apb_reference_model.sv(33) @ 545000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xc7]=0x5d631233 (PSTRB=0xf)
-UVM_INFO apb_reference_model.sv(33) @ 545000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xc7]=0x5d631233 (PSTRB=0xf)
+UVM_INFO apb_monitor.sv(58) @ 555000: uvm_test_top.env.agent.mon [MON] READ  Addr=0xc7 Data=0x0 SLVERR=0
+UVM_INFO apb_reference_model.sv(34) @ 555000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xc7]=0x33 (PSTRB=0xf)
+UVM_INFO apb_reference_model.sv(34) @ 555000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xc7]=0x1233 (PSTRB=0xf)
+UVM_INFO apb_reference_model.sv(34) @ 555000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xc7]=0x631233 (PSTRB=0xf)
+UVM_INFO apb_reference_model.sv(34) @ 555000: uvm_test_top.env.ref_mod [REF_MOD] WRITE PREDICT: shadow[0xc7]=0x5d631233 (PSTRB=0xf)
+UVM_ERROR apb_scoreboard.sv(41) @ 555000: uvm_test_top.env.scb [SCB] DATA MISMATCH @0xc7: exp=0x9800009f act=0x0
 UVM_INFO /fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/etc/uvm-1.2/base/uvm_objection.svh(1276) @ 645000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-UVM_INFO apb_scoreboard.sv(64) @ 645000: uvm_test_top.env.scb [SCB] Result: 1 match(es), 14 mismatch(es)
-UVM_ERROR apb_scoreboard.sv(69) @ 645000: uvm_test_top.env.scb [SCB] TEST FAILED
+UVM_INFO apb_scoreboard.sv(69) @ 645000: uvm_test_top.env.scb [SCB] Result: 13 match(es), 3 mismatch(es)
+UVM_ERROR apb_scoreboard.sv(74) @ 645000: uvm_test_top.env.scb [SCB] TEST FAILED
 UVM_INFO /fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/etc/uvm-1.2/base/uvm_report_catcher.svh(705) @ 645000: reporter [UVM/REPORT/CATCHER] 
 --- UVM Report catcher Summary ---
 
@@ -175,17 +179,17 @@ UVM_INFO /fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/etc/uvm-1.2/b
 --- UVM Report Summary ---
 
 ** Report counts by severity
-UVM_INFO :   68
+UVM_INFO :   83
 UVM_WARNING :    0
-UVM_ERROR :   15
+UVM_ERROR :    4
 UVM_FATAL :    0
 ** Report counts by id
 [DRV]     2
 [MON]    18
-[REF_MOD]    33
+[REF_MOD]    36
 [RNTST]     1
 [RST_SEQ]     2
-[SCB]    18
+[SCB]    19
 [SEQ]     2
 [TEST]     3
 [TEST_DONE]     1
@@ -197,5 +201,5 @@ $finish called from file "/fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP
 $finish at simulation time               645000
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 645000 ps
-CPU Time:      0.540 seconds;       Data structure size:   0.6Mb
-Sat Jul 25 12:42:54 2026
+CPU Time:      0.550 seconds;       Data structure size:   0.6Mb
+Sat Jul 25 13:26:19 2026

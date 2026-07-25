@@ -5,5 +5,5 @@ PYTHONPATH=/fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/linux64/lib
 export PYTHONPATH
 LD_LIBRARY_PATH=/fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/linux64/lib:/fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/linux64/lib/pylib27
 export LD_LIBRARY_PATH
-/fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/linux64/bin/vcsfind_create_index.exe  -z  "/fetools/work_area/frontend/Batch_11/ranjith/APB_SLAVE_UVM/simv.daidir/debug_dump/fsearch/./idents_nVbwUq.xml.gz" "/fetools/work_area/frontend/Batch_11/ranjith/APB_SLAVE_UVM/simv.daidir/debug_dump/fsearch/./idents_tapi.xml.gz" -o "/fetools/work_area/frontend/Batch_11/ranjith/APB_SLAVE_UVM/simv.daidir/debug_dump/fsearch/fsearch.db_tmp"
+/fetools/synopsys/installed_tools/vcs/vcs/Q-2020.03-SP2-8/linux64/bin/vcsfind_create_index.exe  -z  "/fetools/work_area/frontend/Batch_11/ranjith/APB_SLAVE_UVM/simv.daidir/debug_dump/fsearch/./idents_JpWyIO.xml.gz" "/fetools/work_area/frontend/Batch_11/ranjith/APB_SLAVE_UVM/simv.daidir/debug_dump/fsearch/./idents_tapi.xml.gz" -o "/fetools/work_area/frontend/Batch_11/ranjith/APB_SLAVE_UVM/simv.daidir/debug_dump/fsearch/fsearch.db_tmp"
 \mv "/fetools/work_area/frontend/Batch_11/ranjith/APB_SLAVE_UVM/simv.daidir/debug_dump/fsearch/fsearch.db_tmp" "/fetools/work_area/frontend/Batch_11/ranjith/APB_SLAVE_UVM/simv.daidir/debug_dump/fsearch/fsearch.db"
